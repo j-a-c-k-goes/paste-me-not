@@ -12,6 +12,12 @@
         button { padding: 10px 20px; background: #007cba; color: white; border: none; border-radius: 4px; cursor: pointer; }
         .protected { border-color: #ff6b6b; }
         .instructions { background: #f0f0f0; padding: 15px; border-radius: 4px; margin: 20px 0; }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-10px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
     </style>
 </head>
 <body>
