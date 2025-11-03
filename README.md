@@ -1,31 +1,39 @@
-# paste_me_not 
+# paste_me_not
 
-micro-library for addressing this confirmation ux gap: pasting is allowed for type-only inputs.
+micro-library to prevent paste in type-only confirmation inputs.
 
-below, is the product specification.
+this addresses a confirmation ux gap.
 
 ## problem
 
 many systems use "type x to confirm" for destructive actions.
 
-however, paste can circumvent this.
-
-represents gap in 'confirmation ux'
+however, paste circumvents this. and creates a bypass.
 
 ## solution
 
-`paste_me_not`, a script-based solution which:
-
-  - detects paste events in inputs where keystrokes are expected
-  - does typing cadenece/rhythm listening on target inputs
-  - disables paste function on inputs_to_protect
-  - provides visual feedback when paste_attempted
+`paste_me_not` blocks paste events on designated inputs, forcing actual typing for confirmation.
 
 ## value
 
   - low overhead implementation
   - addresses security gap in confirmation ux
   - prevents accidental and automated bypasses
+
+## usage
+
+```javascript
+// protect a confirmation input
+pastemenot.protect('#confirm-input');
+```
+
+## demo
+
+open `demo/index.html` to see it in action.
+
+## status
+
+phase 1: foundation (mvp) - in development
 
 ## design
 

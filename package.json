@@ -1,0 +1,12 @@
+{
+  "name": "paste-me-not",
+  "version": "0.1.0",
+  "description": "micro-library to prevent paste in type-only confirmation inputs",
+  "main": "src/paste-me-not.js",
+  "scripts": {
+    "demo": "open demo/index.html"
+  },
+  "keywords": ["security", "ux", "confirmation", "paste", "validation"],
+  "author": "jcubed",
+  "license": "MIT"
+}
