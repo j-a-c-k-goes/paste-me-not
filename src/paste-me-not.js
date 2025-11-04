@@ -1,11 +1,25 @@
 const pasteMeNot = {
+  accessibilityMode: false, // Allow paste for accessibility users
+  
+  enableAccessibility() {
+    this.accessibilityMode = true;
+    console.log('Accessibility mode enabled - paste allowed');
+  },
+  
+  disableAccessibility() {
+    this.accessibilityMode = false;
+    console.log('Accessibility mode disabled - paste blocked');
+  },
+  
   protect(selector) {
     const inputs = document.querySelectorAll(selector);
     
     inputs.forEach(input => {
       input.addEventListener('paste', (e) => {
-        e.preventDefault();
-        this.showFeedback(input);
+        if (!this.accessibilityMode) {
+          e.preventDefault();
+          this.showFeedback(input, 'paste');
+        }
       });
     });
   },
