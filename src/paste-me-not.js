@@ -1,75 +1,31 @@
 const pasteMeNot = {
-  cadenceThreshold: 50, // ms between keystrokes for natural typing
+  accessibilityMode: false, // Allow paste for accessibility users
+  
+  enableAccessibility() {
+    this.accessibilityMode = true;
+    console.log('Accessibility mode enabled - paste allowed');
+  },
+  
+  disableAccessibility() {
+    this.accessibilityMode = false;
+    console.log('Accessibility mode disabled - paste blocked');
+  },
   
   protect(selector) {
     const inputs = document.querySelectorAll(selector);
     
     inputs.forEach(input => {
-<<<<<<< HEAD
-      this.setupCadenceTracking(input);
-=======
       // Block paste events
->>>>>>> m2-2-bypass-attempt-testing
       input.addEventListener('paste', (e) => {
-        e.preventDefault();
-        this.showFeedback(input, 'paste');
-      });
-      
-      // Block drag & drop
-      input.addEventListener('drop', (e) => {
-        e.preventDefault();
-        this.showFeedback(input, 'drop');
-      });
-      
-      // Block keyboard shortcuts (Ctrl+V, Shift+Insert)
-      input.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey && e.key === 'v') || (e.shiftKey && e.key === 'Insert')) {
+        if (!this.accessibilityMode) {
           e.preventDefault();
-          this.showFeedback(input, 'shortcut');
+          this.showFeedback(input, 'paste');
         }
-      });
-      
-      // Block context menu paste
-      input.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        this.showFeedback(input, 'context');
       });
     });
   },
 
-<<<<<<< HEAD
-  setupCadenceTracking(input) {
-    let keyTimes = [];
-    
-    input.addEventListener('keydown', (e) => {
-      const now = Date.now();
-      keyTimes.push(now);
-      
-      // Keep only last 5 keystrokes
-      if (keyTimes.length > 5) {
-        keyTimes.shift();
-      }
-      
-      // Check cadence if we have multiple keystrokes
-      if (keyTimes.length > 1) {
-        const intervals = [];
-        for (let i = 1; i < keyTimes.length; i++) {
-          intervals.push(keyTimes[i] - keyTimes[i-1]);
-        }
-        
-        // If all intervals are too fast, likely automated
-        const avgInterval = intervals.reduce((a, b) => a + b) / intervals.length;
-        if (avgInterval < this.cadenceThreshold) {
-          console.log('autonomous typing cadence detected:', avgInterval + 'ms');
-        }
-      }
-    });
-  },
-
-  showFeedback(input) {
-=======
   showFeedback(input, type = 'paste') {
->>>>>>> m2-2-bypass-attempt-testing
     // Create feedback message
     const messages = {
       paste: 'Paste blocked - type only',

@@ -11,6 +11,7 @@
 
 ### m2.1: typing cadence detection [DONE]
 <<<<<<< HEAD
+<<<<<<< HEAD
 **tasks:**
 - [x] keystroke timing measurement
 - [x] cadence pattern analysis
@@ -42,6 +43,17 @@
 - [ ] screen reader compatibility
 
 ### m2.4: browser compatibility testing [TODO]
+=======
+### m2.2: bypass attempt testing [DONE]
+### m2.3: accessibility mode toggle [DONE]
+**tasks:**
+- [x] accessibility detection
+- [x] manual toggle option
+- [x] paste allowance for a11y users
+- [x] screen reader compatibility
+
+### m2.4: browser compatibility testing [READY]
+>>>>>>> m2-3-accessibility-mode-toggle
 **tasks:**
 - [ ] chrome/edge testing
 - [ ] firefox testing
