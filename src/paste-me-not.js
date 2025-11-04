@@ -5,14 +5,39 @@ const pasteMeNot = {
     const inputs = document.querySelectorAll(selector);
     
     inputs.forEach(input => {
+<<<<<<< HEAD
       this.setupCadenceTracking(input);
+=======
+      // Block paste events
+>>>>>>> m2-2-bypass-attempt-testing
       input.addEventListener('paste', (e) => {
         e.preventDefault();
-        this.showFeedback(input);
+        this.showFeedback(input, 'paste');
+      });
+      
+      // Block drag & drop
+      input.addEventListener('drop', (e) => {
+        e.preventDefault();
+        this.showFeedback(input, 'drop');
+      });
+      
+      // Block keyboard shortcuts (Ctrl+V, Shift+Insert)
+      input.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey && e.key === 'v') || (e.shiftKey && e.key === 'Insert')) {
+          e.preventDefault();
+          this.showFeedback(input, 'shortcut');
+        }
+      });
+      
+      // Block context menu paste
+      input.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        this.showFeedback(input, 'context');
       });
     });
   },
 
+<<<<<<< HEAD
   setupCadenceTracking(input) {
     let keyTimes = [];
     
@@ -42,9 +67,19 @@ const pasteMeNot = {
   },
 
   showFeedback(input) {
+=======
+  showFeedback(input, type = 'paste') {
+>>>>>>> m2-2-bypass-attempt-testing
     // Create feedback message
+    const messages = {
+      paste: 'Paste blocked - type only',
+      drop: 'Drop blocked - type only', 
+      shortcut: 'Keyboard shortcut blocked - type only',
+      context: 'Context menu blocked - type only'
+    };
+    
     const message = document.createElement('div');
-    message.textContent = 'Paste blocked - type only';
+    message.textContent = messages[type] || messages.paste;
     message.className = 'paste-blocked-message';
     
     // Position near input

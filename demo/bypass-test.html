@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bypass Attempt Testing</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .test-section { margin: 30px 0; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        input { padding: 10px; width: 300px; border: 2px solid #ff6b6b; border-radius: 4px; margin: 10px 0; }
+        .test-list { background: #f9f9f9; padding: 15px; border-radius: 4px; }
+        .test-list li { margin: 5px 0; }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-10px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Bypass Attempt Testing</h1>
+    
+    <div class="test-section">
+        <h3>Test Input (All bypass methods blocked)</h3>
+        <input type="text" id="test-input" placeholder="Try various bypass methods">
+        
+        <div class="test-list">
+            <strong>Try these bypass methods:</strong>
+            <ol>
+                <li><strong>Paste:</strong> Ctrl+V or right-click paste</li>
+                <li><strong>Keyboard shortcut:</strong> Shift+Insert</li>
+                <li><strong>Drag & drop:</strong> Drag text from another source</li>
+                <li><strong>Context menu:</strong> Right-click (menu blocked)</li>
+                <li><strong>Fast typing:</strong> Type very quickly (cadence detection)</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>Automated Input Test</h3>
+        <button onclick="simulateAutomatedInput()">Simulate Automated Typing</button>
+        <p><em>This will type "DELETE" very fast to trigger cadence detection</em></p>
+    </div>
+
+    <script src="../src/paste-me-not.js"></script>
+    <script>
+        // Protect the test input
+        pasteMeNot.protect('#test-input');
+
+        function simulateAutomatedInput() {
+            const input = document.getElementById('test-input');
+            const text = 'DELETE';
+            let i = 0;
+            
+            // Clear input first
+            input.value = '';
+            input.focus();
+            
+            // Type each character with 10ms delay (very fast)
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    // Simulate keydown event
+                    const event = new KeyboardEvent('keydown', {
+                        key: text[i],
+                        code: 'Key' + text[i].toUpperCase(),
+                        bubbles: true
+                    });
+                    input.dispatchEvent(event);
+                    
+                    // Add character to input
+                    input.value += text[i];
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 10); // 10ms between keystrokes - should trigger cadence detection
+        }
+    </script>
+</body>
+</html>

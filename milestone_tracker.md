@@ -10,6 +10,7 @@
 ## phase 2: enhancement
 
 ### m2.1: typing cadence detection [DONE]
+<<<<<<< HEAD
 **tasks:**
 - [x] keystroke timing measurement
 - [x] cadence pattern analysis
@@ -24,6 +25,16 @@
 - [ ] automated input tests
 
 ### m2.3: accessibility mode toggle [TODO]
+=======
+### m2.2: bypass attempt testing [DONE]
+**tasks:**
+- [x] keyboard shortcut tests
+- [x] drag & drop tests
+- [x] context menu tests
+- [x] automated input tests
+
+### m2.3: accessibility mode toggle [READY]
+>>>>>>> m2-2-bypass-attempt-testing
 **tasks:**
 - [ ] accessibility detection
 - [ ] manual toggle option
