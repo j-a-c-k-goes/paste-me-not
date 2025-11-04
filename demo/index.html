@@ -28,7 +28,8 @@
         <ol>
             <li>Try pasting text into the "Type to confirm" field (should be blocked)</li>
             <li>Try pasting into the regular field (should work normally)</li>
-            <li>Check browser console for blocked paste messages</li>
+            <li>Type very fast in the protected field (cadence detection)</li>
+            <li>Check browser console for blocked paste and cadence messages</li>
         </ol>
     </div>
 
@@ -39,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            <label for="confirm">Type "DELETE" to confirm (paste blocked):</label>
+            <label for="confirm">Type "DELETE" to confirm (paste blocked + cadence tracked):</label>
             <input type="text" id="confirm" class="protected" placeholder="Type only - no paste">
         </div>
 

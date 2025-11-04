@@ -1,12 +1,43 @@
 const pasteMeNot = {
+  cadenceThreshold: 50, // ms between keystrokes for natural typing
+  
   protect(selector) {
     const inputs = document.querySelectorAll(selector);
     
     inputs.forEach(input => {
+      this.setupCadenceTracking(input);
       input.addEventListener('paste', (e) => {
         e.preventDefault();
         this.showFeedback(input);
       });
+    });
+  },
+
+  setupCadenceTracking(input) {
+    let keyTimes = [];
+    
+    input.addEventListener('keydown', (e) => {
+      const now = Date.now();
+      keyTimes.push(now);
+      
+      // Keep only last 5 keystrokes
+      if (keyTimes.length > 5) {
+        keyTimes.shift();
+      }
+      
+      // Check cadence if we have multiple keystrokes
+      if (keyTimes.length > 1) {
+        const intervals = [];
+        for (let i = 1; i < keyTimes.length; i++) {
+          intervals.push(keyTimes[i] - keyTimes[i-1]);
+        }
+        
+        // If all intervals are too fast, likely automated
+        const avgInterval = intervals.reduce((a, b) => a + b) / intervals.length;
+        if (avgInterval < this.cadenceThreshold) {
+          console.log('autonomous typing cadence detected:', avgInterval + 'ms');
+        }
+      }
     });
   },
 
