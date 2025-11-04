@@ -4,6 +4,7 @@
   "description": "micro-library to prevent paste in type-only confirmation inputs",
   "main": "src/paste-me-not.js",
   "scripts": {
+    "build": "node build.js",
     "demo": "open demo/index.html"
   },
   "keywords": ["security", "ux", "confirmation", "paste", "validation"],
