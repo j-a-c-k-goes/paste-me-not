@@ -37,9 +37,35 @@ pasteMeNot.protect('#confirm-input');
 
 open `demo/index.html` to see it in action.
 
+## installation
+
+### CDN
+```html
+<script src="https://cdn.jsdelivr.net/npm/paste-me-not@latest/dist/paste-me-not.min.js"></script>
+```
+
+### NPM
+```bash
+npm install paste-me-not
+```
+
+## features
+
+- ✅ **Paste blocking**: Ctrl+V, right-click, Shift+Insert
+- ✅ **Visual feedback**: Animated flash messages  
+- ✅ **Cadence detection**: Automated typing prevention
+- ✅ **Accessibility mode**: Screen reader support
+- ✅ **Comprehensive inputs**: INPUT, TEXTAREA, contenteditable, ARIA
+- ✅ **Error handling**: Graceful degradation
+- ✅ **Zero dependencies**: Pure JavaScript
+
 ## status
 
-phase 1: foundation (mvp) - in development
+✅ **Production Ready** - All phases complete
+- Phase 1: Foundation (MVP) ✅
+- Phase 2: Enhancement ✅  
+- Phase 3: Distribution ✅
+- Phase 4: Release 🚀
 
 ## design
 
