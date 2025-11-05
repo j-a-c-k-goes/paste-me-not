@@ -1,74 +1,127 @@
 const pasteMeNot = {
-  accessibilityMode: false, // Allow paste for accessibility users
-  
+  accessibilityMode: false,         // allow: paste for accessibility users
+  protectedElements: new WeakSet(), // track: protected elements
   enableAccessibility() {
     this.accessibilityMode = true;
-    console.log('Accessibility mode enabled - paste allowed');
+    console.warn('accessibility mode enabled - paste allowed');
   },
-  
   disableAccessibility() {
     this.accessibilityMode = false;
-    console.log('Accessibility mode disabled - paste blocked');
+    console.warn('accessibility mode disabled - paste blocked');
+  },
+  protect(selector) {
+    try {
+      const inputs = document.querySelectorAll(selector);  
+      inputs.forEach(input => {
+        let inputStatusInvalid = (!input || !input.tagName || this.protectedElements.has(input));
+        let inputTagsInvalid   = !this.isValidTextInput(input);
+        if (inputStatusInvalid) { return; } // validate: element and prevent duplicates
+        if (inputTagsInvalid)   { return; } // validate: element tagged (comprehensive)
+        this.protectedElements.add(input);
+        input.addEventListener('paste', (e) => {
+          console.warn(`blocking paste events for element ${e}`);
+          if (!this.accessibilityMode) {
+            e.preventDefault();
+            this.showFeedback(input, 'paste');
+          }
+        });
+      });
+    } catch (error) {
+      console.error(`paste-me-not: Invalid selector or DOM error: ${error.message}`);
+    }
   },
   
-  protect(selector) {
-    const inputs = document.querySelectorAll(selector);
+  isValidTextInput(element) {
+    if (!element || !element.tagName) return false;
     
-    inputs.forEach(input => {
-      // Block paste events
-      input.addEventListener('paste', (e) => {
-        if (!this.accessibilityMode) {
-          e.preventDefault();
-          this.showFeedback(input, 'paste');
-        }
-      });
-    });
-  },
-
-  showFeedback(input, type = 'paste') {
-    // Create feedback message
-    const messages = {
-      paste: 'Paste blocked - type only',
-      drop: 'Drop blocked - type only', 
-      shortcut: 'Keyboard shortcut blocked - type only',
-      context: 'Context menu blocked - type only'
-    };
-    
-    const message = document.createElement('div');
-    message.textContent = messages[type] || messages.paste;
-    message.className = 'paste-blocked-message';
-    
-    // Position near input
-    const rect = input.getBoundingClientRect();
-    message.style.cssText = `
-      position: fixed;
-      top: ${rect.bottom + 5}px;
-      left: ${rect.left}px;
-      background: #ff6b6b;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 4px;
-      font-size: 12px;
-      z-index: 1000;
-      animation: fadeInOut 2s ease-in-out;
-    `;
-    
-    document.body.appendChild(message);
-    
-    // Remove after animation
-    setTimeout(() => {
-      if (message.parentNode) {
-        message.parentNode.removeChild(message);
+    console.info(`treating ${element} as standard form element`);
+    if (['INPUT', 'TEXTAREA'].includes(element.tagName.toUpperCase())) {
+      if (element.tagName.toUpperCase() === 'INPUT') {
+        console.info(`checking if ${element} is text-accepting`);
+        const textTypes = ['text', 'password', 'email', 'search', 'url', 'tel', 'number'];
+        return textTypes.includes(element.type || 'text');
       }
-    }, 2000);
+      return true;
+    }
+    if (element.contentEditable === 'true') return true; // contenteditable elements
+    const role = element.getAttribute('role'); // ARIA textbox role
+    if (['textbox', 'combobox'].includes(role)) return true;
+    return false;
+  },
+  
+  showFeedback(input, type = 'paste') {
+    try {
+      // create: feedback message
+      const messages = {
+        paste:    'paste blocked - type only',
+        drop:     'drop blocked - type only', 
+        shortcut: 'keyboard shortcut blocked - type only',
+        context:  'context menu blocked - type only'
+      };
+      const message       = document.createElement('div');
+      message.textContent = messages[type] || messages.paste;
+      message.className   = 'paste-blocked-message';
+      
+      // position-element: safe align w/ fallback
+      let top = '10px', left = '10px';
+      try {
+        if (input && input.getBoundingClientRect) {
+          const rect = input.getBoundingClientRect();
+          top        = `${rect.bottom + 5}px`;
+          left       = `${rect.left}px`;
+        }
+      } catch (rectError) {
+        console.warn(`element defaulting to fallback positioning -- ${rectError}`);
+      }
+      message.style.cssText = `
+        position:       fixed !important;
+        top:            ${top};
+        left:           ${left};
+        background:   #ff6b6b !important;
+        color:          white !important;
+        padding:        5px 10px !important;
+        border-radius:  4px !important;
+        font-size:      12px !important;
+        z-index:        2147483647 !important;
+        animation:      fadeInOut 2s ease-in-out;
+        pointer-events: none !important;
+      `;
+
+      // append: DOM
+      const container = document.body || document.documentElement;
+      if (container) {
+        container.appendChild(message);
+        setTimeout(() => {
+          console.warn(`attempting post-animation clean-up`);
+          try {
+            if (message.parentNode) {
+              message.parentNode.removeChild(message);
+            }
+          } catch (removeError) {
+            console.error(`silent failure happening on clean-up: ${removeError}`);
+          }
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('paste-me-not: feedback display failed:', error.message);
+    }
   }
 };
 
-// Auto-initialize if DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+try {
+  console.warn(`auto-initializing DOM if/when ready`);
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        window.pasteMeNot = pasteMeNot;
+      });
+    } else {
+      window.pasteMeNot = pasteMeNot;
+    }
+  }
+} catch (initError) {
+  console.error(`no DOM detected`);
+  if (typeof window !== 'undefined') {
     window.pasteMeNot = pasteMeNot;
-  });
-} else {
-  window.pasteMeNot = pasteMeNot;
+  }
 }

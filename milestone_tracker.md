@@ -1,0 +1,42 @@
+# milestone tracker
+
+## phase 1: foundation (mvp) [COMPLETE]
+
+### m1.1: project structure setup [DONE]
+### m1.2: core paste detection & blocking [DONE]
+### m1.3: basic html demo page [DONE]
+### m1.4: visual feedback for blocked paste [DONE]
+
+## phase 2: enhancement [COMPLETE]
+
+### m2.1: typing cadence detection [DONE]
+### m2.2: bypass attempt testing [DONE]
+### m2.3: accessibility mode toggle [DONE]
+### m2.4: browser compatibility testing [DONE]
+
+## phase 3: distribution
+
+### m3.1: library packaging (minified js) [DONE]
+### m3.2: documentation & usage guide [DONE]
+**tasks:**
+- [x] api documentation
+- [x] usage examples
+- [x] integration guide
+- [x] troubleshooting guide
+
+### m3.3: npm package preparation [READY]
+**tasks:**
+- [ ] package.json npm fields
+- [ ] npm publish setup
+- [ ] version tagging
+- [ ] registry preparation
+
+### m3.4: cdn-ready distribution files [TODO]
+
+---
+
+**legend:**
+- [READY] = ready to start
+- [ACTIVE] = in progress  
+- [DONE] = complete
+- [BLOCKED] = blocked

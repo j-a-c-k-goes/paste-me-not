@@ -2,7 +2,7 @@
 
 ## tested browsers
 
-### ✅ chrome/chromium-based (primary support)
+### chrome/chromium-based (primary support)
 - **chrome 120+**: full support
 - **edge 120+**: full support  
 - **opera 106+**: full support
@@ -17,17 +17,17 @@
 - [x] visual feedback animations
 - [x] accessibility mode toggle
 
-### ⚠️ firefox (limited support)
+### firefox (limited support)
 - **firefox 120+**: partial support
 
-**known limitations:**
-- context menu blocking may not work consistently
+**limitations:**
+- context menu blocking not guranteed
 - some keyboard shortcuts might bypass detection
-- cadence timing may vary due to different event handling
+- cadence timing variable due to nature of event handling
 
-**workaround:** use `user-select: none` css for additional protection
+**potential workaround:** use `user-select: none` css for additional protection
 
-### ❓ safari (untested - theoretical support)
+### safari (untested - theoretical support)
 - **safari 17+**: expected to work
 
 **potential issues:**
