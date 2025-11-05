@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>paste_me_not Demo</title>
+    <title>paste-me-not demo</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
         .form-group { margin: 20px 0; }
@@ -24,27 +24,27 @@
     <h1>paste_me_not Demo</h1>
     
     <div class="instructions">
-        <strong>Test Instructions:</strong>
+        <strong>test instructions:</strong>
         <ol>
-            <li>Try pasting text into the "Type to confirm" field (should be blocked)</li>
-            <li>Try pasting into the regular field (should work normally)</li>
-            <li>Type very fast in the protected field (cadence detection)</li>
-            <li>Check browser console for blocked paste and cadence messages</li>
+            <li>try pasting text into the "type to confirm" field (should be blocked)</li>
+            <li>try pasting into the regular field (should work normally)</li>
+            <li>type very fast in the protected field (cadence detection)</li>
+            <li>check browser console for blocked paste and cadence messages</li>
         </ol>
     </div>
 
     <form>
         <div class="form-group">
-            <label for="regular">Regular Input (paste allowed):</label>
+            <label for="regular">regular input (paste allowed):</label>
             <input type="text" id="regular" placeholder="Paste works here">
         </div>
 
         <div class="form-group">
-            <label for="confirm">Type "DELETE" to confirm (paste blocked + cadence tracked):</label>
+            <label for="confirm">type "delete" to confirm (paste blocked + cadence tracked):</label>
             <input type="text" id="confirm" class="protected" placeholder="Type only - no paste">
         </div>
 
-        <button type="button" onclick="testConfirm()">Test Confirmation</button>
+        <button type="button" onclick="testConfirm()">test confirmation</button>
     </form>
 
     <script src="../src/paste-me-not.js"></script>
@@ -55,9 +55,9 @@
         function testConfirm() {
             const value = document.getElementById('confirm').value;
             if (value === 'DELETE') {
-                alert('Confirmation successful!');
+                alert('confirmation successful!');
             } else {
-                alert('Please type "DELETE" to confirm');
+                alert('please type "DELETE" to confirm');
             }
         }
     </script>

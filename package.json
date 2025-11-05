@@ -1,6 +1,6 @@
 {
   "name": "paste-me-not",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "micro-library to prevent paste in type-only confirmation inputs",
   "main": "dist/paste-me-not.js",
   "browser": "dist/paste-me-not.min.js",

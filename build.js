@@ -31,7 +31,7 @@ fs.writeFileSync(path.join(distDir, 'paste-me-not.min.js'), minified);
 
 // Version info
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-const versionInfo = `/* paste-me-not v${packageJson.version} | MIT License */\n`;
+const versionInfo = `/* paste-me-not v${packageJson.version} */\n`;
 
 // Add version headers
 fs.writeFileSync(
@@ -44,7 +44,7 @@ fs.writeFileSync(
   versionInfo + minified
 );
 
-console.log('✓ Distribution files created:');
+console.log('Distribution files created:');
 console.log('  - dist/paste-me-not.js');
 console.log('  - dist/paste-me-not.min.js');
 console.log(`  - Version: ${packageJson.version}`);

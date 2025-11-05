@@ -2,7 +2,7 @@
 
 changes to `paste-me-not` are documented in this file.
 
-## [0.1.0] - 2025 november 5
+## [0.1.2] - 2025 november 5
 
 ### added
 - initial paste-me-not library (custom pml license)
