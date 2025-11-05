@@ -1,4 +1,4 @@
-/* paste-me-not v0.1.0 | MIT License */
+/* paste-me-not v0.1.1 | MIT License */
 const pasteMeNot = {
   accessibilityMode: false,         // allow: paste for accessibility users
   protectedElements: new WeakSet(), // track: protected elements
