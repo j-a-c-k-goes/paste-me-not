@@ -35,7 +35,13 @@ pasteMeNot.protect('#confirm-input');
 
 ## demo
 
-open `demo/index.html` to see it in action.
+**local:** open `demo/index.html` to see it in action.
+
+**live demos:**
+- [documentation](https://username.github.io/paste-me-not/docs/)
+- [basic demo](https://username.github.io/paste-me-not/demo/index.html)
+- [bypass testing](https://username.github.io/paste-me-not/demo/bypass-test.html)
+- [accessibility demo](https://username.github.io/paste-me-not/demo/accessibility-test.html)
 
 ## installation
 
@@ -51,21 +57,14 @@ npm install paste-me-not
 
 ## features
 
-- ✅ **Paste blocking**: Ctrl+V, right-click, Shift+Insert
-- ✅ **Visual feedback**: Animated flash messages  
-- ✅ **Cadence detection**: Automated typing prevention
-- ✅ **Accessibility mode**: Screen reader support
-- ✅ **Comprehensive inputs**: INPUT, TEXTAREA, contenteditable, ARIA
-- ✅ **Error handling**: Graceful degradation
-- ✅ **Zero dependencies**: Pure JavaScript
+- **paste blocking**: ctrl+v, right-click, shift+insert
+- **visual feedback**: animated flash messages  
+- **cadence detection**: automated typing prevention
+- **accessibility mode**: screen reader support
+- **comprehensive inputs**: input, textarea, contenteditable, aria
+- **error handling**: graceful degradation
+- **zero dependencies**: pure javascript
 
-## status
-
-✅ **Production Ready** - All phases complete
-- Phase 1: Foundation (MVP) ✅
-- Phase 2: Enhancement ✅  
-- Phase 3: Distribution ✅
-- Phase 4: Release 🚀
 
 ## design
 
@@ -89,12 +88,12 @@ npm install paste-me-not
 ## challenges
 
 * accessibility concerns (users who are paste-dependent)
-  - factor in accessibility mode and how this can be triggered
+  - factor in accessibility mode triggering
 
 * false positives in cadence detection
   - monitor in proof-of-concept
   - should be lower surface b/c enforcer only works on taret inputs (not an omni listener)
 
 * browser compatibility across paste event handling
-  - handle for chromium-based browsers (covers a few browsers) and edge
-  - present limitations in proof-of-concept
+  - handle for chromium-based browsers and edge
+  - limitations addressed in proof-of-concept

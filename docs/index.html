@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paste-me-not - Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .nav { background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .nav a { display: inline-block; margin: 5px 10px; padding: 8px 15px; background: #007cba; color: white; text-decoration: none; border-radius: 4px; }
+        .nav a:hover { background: #005a87; }
+        .demo-links { background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .install { background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>paste-me-not</h1>
+        <p>micro-library to prevent paste in type-only confirmation inputs</p>
+        <p><strong>version 0.1.0</strong> | <a href="https://github.com/username/paste-me-not">github</a> | <a href="https://www.npmjs.com/package/paste-me-not">npm</a></p>
+    </div>
+
+    <div class="install">
+        <h2>quick start</h2>
+        <h3>cdn (recommended)</h3>
+        <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/paste-me-not@latest/dist/paste-me-not.min.js"&gt;&lt;/script&gt;</code></pre>
+        
+        <h3>npm</h3>
+        <pre><code>npm install paste-me-not</code></pre>
+        
+        <h3>usage</h3>
+        <pre><code>// protect confirmation inputs
+pastemenot.protect('#confirm-input');</code></pre>
+    </div>
+
+    <div class="demo-links">
+        <h2>live demos</h2>
+        <a href="../demo/index.html">basic demo</a>
+        <a href="../demo/bypass-test.html">bypass testing</a>
+        <a href="../demo/accessibility-test.html">accessibility demo</a>
+    </div>
+
+    <div class="nav">
+        <h2>documentation</h2>
+        <a href="api-documentation.md">api reference</a>
+        <a href="usage-guide.md">usage guide</a>
+        <a href="integration-guide.md">integration guide</a>
+        <a href="troubleshooting.md">troubleshooting</a>
+        <a href="browser-compatibility.md">browser support</a>
+        <a href="cdn-usage.md">cdn usage</a>
+    </div>
+
+    <h2>features</h2>
+    <ul>
+        <li><strong>paste blocking</strong>: ctrl+v, right-click, shift+insert</li>
+        <li><strong>visual feedback</strong>: animated flash messages</li>
+        <li><strong>bypass prevention</strong>: drag & drop, context menu, keyboard shortcuts</li>
+        <li><strong>cadence detection</strong>: automated typing prevention</li>
+        <li><strong>accessibility mode</strong>: screen reader support</li>
+        <li><strong>comprehensive inputs</strong>: input, textarea, contenteditable, aria</li>
+        <li><strong>zero dependencies</strong>: pure javascript (2kb minified)</li>
+    </ul>
+
+    <h2>browser support</h2>
+    <ul>
+        <li>chrome 120+</li>
+        <li>edge 120+</li>
+        <li>firefox 120+ (partial support)</li>
+        <li>safari 17+ (untested)</li>
+    </ul>
+
+    <h2>license</h2>
+    <p>custom pml license - commercial use allowed, repackaging prohibited. <a href="../LICENSE">view license</a></p>
+</body>
+</html>
