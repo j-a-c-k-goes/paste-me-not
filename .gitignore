@@ -2,3 +2,6 @@ node_modules/
 *.log
 .DS_Store
 build/
+docs/build_phases.md
+docs/milestone_tracker.md
+milestone_tracker.md
