@@ -4,3 +4,5 @@ milestone_tracker.md
 build_phases.md
 *.log
 .DS_Store
+docs/build_phases.md
+docs/milestone_tracker.md
