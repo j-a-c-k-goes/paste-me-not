@@ -22,9 +22,15 @@ however, paste circumvents this. and creates a bypass.
 
 ## usage
 
+### cdn (recommended)
+```html
+<script src="https://cdn.jsdelivr.net/npm/paste-me-not@latest/dist/paste-me-not.min.js"></script>
+```
+
+### javascript
 ```javascript
 // protect a confirmation input
-pastemenot.protect('#confirm-input');
+pasteMeNot.protect('#confirm-input');
 ```
 
 ## demo

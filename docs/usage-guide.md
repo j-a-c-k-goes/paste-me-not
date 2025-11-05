@@ -6,7 +6,7 @@
 
 **cdn (recommended):**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/paste-me-not@0.1.0/dist/paste-me-not.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/paste-me-not@latest/dist/paste-me-not.min.js"></script>
 ```
 
 **local file:**

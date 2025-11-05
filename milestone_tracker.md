@@ -14,23 +14,30 @@
 ### m2.3: accessibility mode toggle [DONE]
 ### m2.4: browser compatibility testing [DONE]
 
-## phase 3: distribution
+## phase 3: distribution [COMPLETE]
 
 ### m3.1: library packaging (minified js) [DONE]
 ### m3.2: documentation & usage guide [DONE]
 ### m3.3: npm package preparation [DONE]
+### m3.4: cdn-ready distribution files [DONE]
 **tasks:**
-- [x] package.json npm fields
-- [x] npm publish setup
-- [x] version tagging
-- [x] registry preparation
+- [x] jsdelivr cdn setup
+- [x] unpkg cdn setup
+- [x] version release tags
+- [x] cdn documentation
 
-### m3.4: cdn-ready distribution files [READY]
+## phase 4: release
+
+### m4.1: github repository setup [READY]
 **tasks:**
-- [ ] jsdelivr cdn setup
-- [ ] unpkg cdn setup
-- [ ] version release tags
-- [ ] cdn documentation
+- [ ] create github repository
+- [ ] push codebase
+- [ ] setup github pages for demo
+- [ ] create release tags
+
+### m4.2: open source license [TODO]
+### m4.3: release v0.1.0 package [TODO]
+### m4.4: demo site deployment [TODO]
 
 ---
 
