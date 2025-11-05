@@ -2,12 +2,42 @@
   "name": "paste-me-not",
   "version": "0.1.0",
   "description": "micro-library to prevent paste in type-only confirmation inputs",
-  "main": "src/paste-me-not.js",
+  "main": "dist/paste-me-not.js",
+  "browser": "dist/paste-me-not.min.js",
+  "files": [
+    "dist/",
+    "src/",
+    "docs/",
+    "README.md"
+  ],
   "scripts": {
     "build": "node build.js",
+    "prepublishOnly": "npm run build",
     "demo": "open demo/index.html"
   },
-  "keywords": ["security", "ux", "confirmation", "paste", "validation"],
+  "keywords": [
+    "security",
+    "ux",
+    "confirmation",
+    "paste",
+    "validation",
+    "accessibility",
+    "form",
+    "input",
+    "clipboard",
+    "browser"
+  ],
   "author": "jcubed",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-a-c-k-goes/paste-me-not.git"
+  },
+  "bugs": {
+    "url": "https://github.com/j-a-c-k-goes/paste-me-not/issues"
+  },
+  "homepage": "https://github.com/j-a-c-k-goes/paste-me-not#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  }
 }

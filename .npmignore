@@ -1,0 +1,6 @@
+demo/
+build.js
+milestone_tracker.md
+build_phases.md
+*.log
+.DS_Store

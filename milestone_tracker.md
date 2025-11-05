@@ -18,20 +18,19 @@
 
 ### m3.1: library packaging (minified js) [DONE]
 ### m3.2: documentation & usage guide [DONE]
+### m3.3: npm package preparation [DONE]
 **tasks:**
-- [x] api documentation
-- [x] usage examples
-- [x] integration guide
-- [x] troubleshooting guide
+- [x] package.json npm fields
+- [x] npm publish setup
+- [x] version tagging
+- [x] registry preparation
 
-### m3.3: npm package preparation [READY]
+### m3.4: cdn-ready distribution files [READY]
 **tasks:**
-- [ ] package.json npm fields
-- [ ] npm publish setup
-- [ ] version tagging
-- [ ] registry preparation
-
-### m3.4: cdn-ready distribution files [TODO]
+- [ ] jsdelivr cdn setup
+- [ ] unpkg cdn setup
+- [ ] version release tags
+- [ ] cdn documentation
 
 ---
 
